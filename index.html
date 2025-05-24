@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active" id="menu-inicio">
+                <a href="#">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+            </li>
+            <li id="menu-informativo">
+                <a href="#">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Informativo</span>
+                </a>
+            </li>
+            <li id="menu-versao">
+                <a href="#">
+                    <i class="fas fa-code"></i>
+                    <span>Versão</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Calculadora de Juros</h1>
+            
+            <div class="calculator">
+                <div class="form-group">
+                    <label for="principal">Capital Inicial (R$):</label>
+                    <input type="number" id="principal" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="rate">Taxa de Juros (%):</label>
+                    <input type="number" id="rate" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="time">Tempo (meses):</label>
+                    <input type="number" id="time" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest-type">Tipo de Juros:</label>
+                    <select id="interest-type">
+                        <option value="simple">Simples</option>
+                        <option value="compound">Composto</option>
+                    </select>
+                </div>
+                
+                <button id="calculate">Calcular</button>
+                <button id="clear">Limpar</button>
+                
+                <div class="result">
+                    <h3>Resultado:</h3>
+                    <p id="result-text">-</p>
+                </div>
+            </div>
+            
+            <div class="history">
+                <h2>Histórico de Cálculos</h2>
+                <div id="history-list"></div>
+                <button id="clear-history">Limpar Histórico</button>
+            </div>
+        </div>
+        
+        <div class="info-content" style="display: none;">
+            <div class="container">
+                <h1>Informações sobre Juros</h1>
+                <div class="info-section">
+                    <h2>Juros Simples</h2>
+                    <p>Os juros simples são calculados apenas sobre o valor inicial (capital). A fórmula é:</p>
+                    <p class="formula">J = P × i × n</p>
+                    <p>Onde:</p>
+                    <ul>
+                        <li>J = Juros</li>
+                        <li>P = Capital inicial</li>
+                        <li>i = Taxa de juros</li>
+                        <li>n = Período de tempo</li>
+                    </ul>
+                    <p>Exemplo: Se você investir R$ 1.000 a uma taxa de 5% ao mês por 3 meses:</p>
+                    <p class="formula">J = 1000 × 0,05 × 3 = R$ 150</p>
+                    <p>Total acumulado: R$ 1.150</p>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Juros Compostos</h2>
+                    <p>Os juros compostos são calculados sobre o capital inicial e também sobre os juros acumulados. A fórmula é:</p>
+                    <p class="formula">M = P × (1 + i)<sup>n</sup></p>
+                    <p>Onde:</p>
+                    <ul>
+                        <li>M = Montante final</li>
+                        <li>P = Capital inicial</li>
+                        <li>i = Taxa de juros</li>
+                        <li>n = Período de tempo</li>
+                    </ul>
+                    <p>Exemplo: Os mesmos R$ 1.000 a 5% ao mês por 3 meses:</p>
+                    <p class="formula">M = 1000 × (1 + 0,05)<sup>3</sup> ≈ R$ 1.157,63</p>
+                    <p>Os juros compostos são conhecidos como "juros sobre juros" e têm um crescimento exponencial, sendo mais vantajosos para investimentos de longo prazo.</p>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Comparação</h2>
+                    <p>Para entender a diferença entre os dois tipos de juros:</p>
+                    <ul>
+                        <li><strong>Juros Simples:</strong> Crescimento linear, calculado sempre sobre o capital inicial</li>
+                        <li><strong>Juros Compostos:</strong> Crescimento exponencial, calculado sobre o capital + juros acumulados</li>
+                    </ul>
+                    <p>No longo prazo, a diferença entre os dois tipos pode ser enorme. Por exemplo, em 30 meses:</p>
+                    <ul>
+                        <li>Juros simples: R$ 1.000 + (1000 × 0,05 × 30) = R$ 2.500</li>
+                        <li>Juros compostos: R$ 1.000 × (1,05)<sup>30</sup> ≈ R$ 4.321,94</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="version-content" style="display: none;">
+            <div class="container">
+                <h1>Versão do Website</h1>
+                <div class="version-info">
+                    <p><strong>Versão:</strong> 1.0.0</p>
+                    <p><strong>Última atualização:</strong> 2025</p>
+                    <p><strong>Desenvolvido por:</strong> Greem Monster Project</p>
+                    <p><strong>Contato:</strong>erick.devzone@gmail.com</p>
+                    <p><strong>Tecnologias utilizadas:</strong></p>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Chart.js</li>
+                        <li>Python Flask (backend opcional)</li>
+                        <li>Font Awesome (ícones)</li>
+                    </ul>
+                    <p><strong>Recursos:</strong></p>
+                    <ul>
+                        <li>Cálculo de juros simples e compostos</li>
+                        <li>Histórico de cálculos no localStorage</li>
+                        <li>Interface responsiva</li>
+                        <li>Menu lateral de navegação</li>
+                        <li>Informações educacionais sobre juros</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="interest-chart"></canvas>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Desenvolvido por Greem Monster Project - <a href="#" target="_blank">greemmonster.com</a></p>
+            <p>&copy; 2025 Simulador de Juros Compostos - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
