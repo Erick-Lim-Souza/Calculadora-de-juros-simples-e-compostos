@@ -50,21 +50,20 @@ Opção 2: Com Backend
 
 pip install flask
 python server.py
-# Acesse http://localhost:5000
+Acesse http://localhost:5000
 
 📂 Estrutura de Arquivos
 
 ´´´
-.
 ├── assets/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── script.js
+├── css/
+│   └── style.css
+│── js/
+│   └── script.js
 ├── index.html
 ├── server.py
 └── README.md
-```
+´´´
 
 🗺 Roadmap
 Cálculos básicos
