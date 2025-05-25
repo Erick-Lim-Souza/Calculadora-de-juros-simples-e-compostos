@@ -71,12 +71,6 @@ Cálculos básicos
 
 Armazenamento local
 
-Exportar histórico (CSV/PDF)
-
-Modo escuro
-
-Autenticação de usuários
-
 ### 🤝 Contribuição
 Faça um fork do projeto
 
